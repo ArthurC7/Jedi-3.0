@@ -1,0 +1,26 @@
+write("testing alu functions")
+4 + 5 * 3
+(4 + 5) * 3
+2 * 3.14
+3.14 * 2
+5 - 7
+5 - -7
+12 / 5
+12.0 / 5
+"bat" + "man"
+3 < 4
+3 > 4
+3 != 4
+3 == 4
+3 == true
+write("testing definitions")
+def x = 3 + 4 * 5
+def y = x - 2
+x + y
+x + y < 22
+write("testing special forms")
+x < 20 || false ||y != 21 || 1 == 1 || nada
+x > 20 && true && y == 21 && 1 == 0 && nada
+if (x < 7) nada else 100
+if (x > 7) "pass" else "fail"
+if (x < 7) "pass"

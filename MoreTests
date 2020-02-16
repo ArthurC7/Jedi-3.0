@@ -1,0 +1,46 @@
+write("Testing blocks...")
+
+{def x = 100; def y = 20; x + {def x = 50; x + y}}
+
+write("testing basic functions ... ")
+def cube = lambda(x) x * x * x
+cube(3 + 2)
+def add5 = lambda(x) x + 5
+add5({write("entering add5"); 6 - 3})
+def fun1 = lambda(x, y, z) cube(add5(x + y)) + z
+fun1(2, 3, 4)
+
+write("testing recursion ...")
+def fib = lambda(n) if (n < 2) 1 else fib(n - 1) + fib(n - 2)
+fib(5)
+fib(6)
+
+write("testing static scope ... ")
+def beta = 10
+def fun2 = {def beta = 20; lambda(x) x * beta}
+fun2(beta)
+
+write("testing combinators ... ")
+def funMaker = lambda(f, g) lambda(x) if (x < 0) f(x) else g(x)
+def fun2 = funMaker(cube, add5)
+fun2(3)
+fun2(-3)
+
+write("Testing variables...")
+
+def bal1 = var(0.0)
+def bal2 = var(0.0)
+
+def deposit = lambda(acct, amt) acct = [acct] + amt
+def withdraw = lambda(acct, amt) {def temp = [acct] - amt; if (0 < temp || temp == 0) acct = temp}
+
+bal1
+deposit(bal1, 25)
+bal1
+withdraw(bal1, 10)
+bal1
+withdraw(bal1, 5)
+bal1
+
+while ([bal2] < 100) { write([bal2]); deposit(bal2, 18)}
+bal2
